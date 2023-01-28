@@ -1,6 +1,6 @@
 <?php
 
-namespace LittleSkinChina\BsSocialiteProviderLittleSkin;
+namespace BarbatosClub\BsSocialiteProviderWordpressOpenID;
 
 use SocialiteProviders\Manager\OAuth2\AbstractProvider;
 use SocialiteProviders\Manager\OAuth2\User;
@@ -10,7 +10,7 @@ class Provider extends AbstractProvider
     /**
      * Unique Provider Identifier.
      */
-    const IDENTIFIER = 'LITTLESKIN';
+    const IDENTIFIER = 'BARBATOSOPENID';
 
     /**
      * {@inheritdoc}
@@ -22,7 +22,7 @@ class Provider extends AbstractProvider
      */
     protected function getAuthUrl($state)
     {
-        return $this->buildAuthUrlFromBase('https://littleskin.cn/oauth/authorize', $state);
+        return $this->buildAuthUrlFromBase('https://openid.barbatos.club/wp-json/oauth2/authorize', $state);
     }
 
     /**
@@ -30,7 +30,7 @@ class Provider extends AbstractProvider
      */
     protected function getTokenUrl()
     {
-        return 'https://littleskin.cn/oauth/token';
+        return 'https://openid.barbatos.club/wp-json/oauth2/access_token';
     }
 
     /**
@@ -38,7 +38,7 @@ class Provider extends AbstractProvider
      */
     protected function getUserByToken($token)
     {
-        $response = $this->getHttpClient()->get('https://littleskin.cn/api/user', [
+        $response = $this->getHttpClient()->get('https://openid.barbatos.club/wp-json/wp/v2/users/me', [
             'headers' => [
                 'Authorization' => 'Bearer '.$token,
             ],
@@ -55,9 +55,9 @@ class Provider extends AbstractProvider
     protected function mapUserToObject(array $user)
     {
         return (new User())->setRaw($user)->map([
-            'id'       => $user['uid'],
+            'id'       => $user['id'],
             'nickname' => $user['nickname'],
-            'name'     => null,
+            'name'     => $user['username'],
             'email'    => $user['email'],
             'avatar'   => null,
         ]);

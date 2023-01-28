@@ -1,16 +1,16 @@
 <?php
 
-namespace LittleSkinChina\BsSocialiteProviderLittleSkin;
+namespace BarbatosClub\BsSocialiteProviderWordpressOpenID;
 
 use SocialiteProviders\Manager\SocialiteWasCalled;
 
-class LittleSkinExtendSocialite
+class OpenIDExtendSocialite
 {
     /**
      * Execute the provider.
      */
     public function handle(SocialiteWasCalled $socialiteWasCalled)
     {
-        $socialiteWasCalled->extendSocialite('littleskin', __NAMESPACE__.'\Provider');
+        $socialiteWasCalled->extendSocialite('barbatos-club-openid', __NAMESPACE__.'\Provider');
     }
 }

@@ -1,6 +1,6 @@
 {
-    "name": "littleskinchina/bs-socialite-provider-littleskin",
-    "description": "LittleSkin OAuth2 Provider for Laravel Socialite",
+    "name": "barbatos-club/bs-socialite-provider-barbatos-realms",
+    "description": "Barbatos-Realms's Blessing Skin OAuth2 Provider for Laravel Socialite",
     "license": "MIT",
     "authors": [{
         "name": "Asnxthaony",
@@ -12,7 +12,7 @@
     },
     "autoload": {
         "psr-4": {
-            "LittleSkinChina\\BsSocialiteProviderLittleSkin\\": ""
+            "BarbatosClub\\BsSocialiteProviderWordpressOpenID": ""
         }
     }
 }
